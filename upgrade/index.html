@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vídeos Narrados Shopee — Landing</title>
-  <meta name="description" content="Pacote de vídeos narrados prontos para afiliados Shopee. Baixe, poste e venda.">
+  <title>Upgrade — Vídeos Narrados Shopee</title>
+  <meta name="description" content="Faça o upgrade e libere acesso completo aos vídeos narrados Shopee.">
   <link rel="preload" as="image" href="1.png">
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,9 +21,7 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=704776715751233&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  src="https://www.facebook.com/tr?id=704776715751233&ev=PageView&noscript=1"/></noscript>
 
   <style>
     :root{
@@ -37,26 +35,32 @@
     html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
     img{display:block; width:100%; height:auto;}
     main{max-width:var(--maxw); margin:0 auto;}
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 12px;}
     .cta{display:flex; justify-content:center; margin:20px 0; padding:0 12px;}
-    .cta a{display:inline-block; text-decoration:none; font-weight:800; padding:18px 22px; border-radius:999px; background:var(--accent); color:#fff; box-shadow:0 6px 16px rgba(0,0,0,.35); transition:.2s transform,.2s background; text-align:center; width:100%; max-width:680px;}
+    .cta a{display:inline-block; text-decoration:none; font-weight:700; padding:16px 22px; border-radius:999px; background:var(--accent); color:#fff; box-shadow:0 6px 16px rgba(0,0,0,.35); transition:.2s transform,.2s background; text-align:center; width:100%; max-width:400px;}
     .cta a:hover{background:var(--accent-dark); transform:translateY(-1px);}
     .cta a:active{transform:translateY(0);}
-    img{-webkit-user-drag:none; user-select:none;}
-    @media (max-width:480px){
-      .cta a{padding:16px 18px; font-size:15px;}
+    /* Botão discreto */
+    .low-btn a{
+      display:inline-block;
+      background:#333;
+      color:#fff;
+      font-size:14px;
+      padding:10px 16px;
+      border-radius:30px;
+      text-decoration:none;
+      opacity:.75;
+      transition:.2s;
     }
+    .low-btn a:hover{opacity:1; background:#444;}
+    .low-btn{text-align:center; margin:18px 0 40px;}
+    img{-webkit-user-drag:none; user-select:none;}
   </style>
 </head>
 <body>
 
-  <!-- ===== Barra Topo ===== -->
-  <div id="e_1313492_1_173967184567b149259e736439016908" class="gpc-e e_html dd dm">
-    <div class="c e_html">
-      <div id="displayDate3" style="color:#fff; font-size:16px; text-align:center; background:#ff6600; padding:10px;">
-        Somente nos dias: <b><span id="datas"></span></b> você vai pagar apenas <b>R$ 10,00</b>
-      </div>
-    </div>
+  <!-- Barra topo -->
+  <div style="color:#fff; font-size:16px; text-align:center; background:#ff6600; padding:10px;">
+    🔥 Oferta de Upgrade disponível apenas <b><span id="datas"></span></b>
   </div>
   <script>
     function getDatas() {
@@ -66,26 +70,34 @@
       for (var i = 2; i >= 0; i--) {
         var novaData = new Date();
         novaData.setDate(data.getDate() - i);
-        var dia = novaData.getDate();
-        dias.push(dia);
+        dias.push(novaData.getDate());
       }
       return dias.join(', ') + ' de ' + mesAtual;
     }
-    document.addEventListener('DOMContentLoaded', function(){
-      var el = document.getElementById("datas");
-      if(el){ el.textContent = getDatas(); }
+    document.addEventListener('DOMContentLoaded', ()=> {
+      document.getElementById("datas").textContent = getDatas();
     });
   </script>
-  <!-- ===== /Barra Topo ===== -->
 
   <main>
+    <!-- 1 -->
     <section id="s1">
-      <img src="1.png" alt="Seção 1" loading="eager">
+      <img src="1.png" alt="Upgrade Seção 1" loading="eager">
     </section>
 
+    <!-- 2 (link premium) -->
     <section id="s2">
-      <img src="2.png" alt="Seção 2">
+      <a href="https://acheinavovo.com.br/ckt/vRv3Dx" target="_blank" rel="noopener nofollow">
+        <img src="2.png" alt="Upgrade Premium — Clique para liberar tudo">
+      </a>
     </section>
+
+    <!-- Botão básico -->
+    <div class="low-btn">
+      <a href="https://acheinavovo.com.br/ckt/z4KxRK" target="_blank" rel="noopener nofollow">
+        Quero ficar na oferta básica por R$ 5,97
+      </a>
+    </div>
   </main>
 
   <script>
@@ -102,7 +114,7 @@
     function isCheckout(href) {
       try {
         const u = new URL(href, window.location.origin);
-        return /(^|\.)pagamento\.acheinavovo\.com\.br$/i.test(u.hostname);
+        return /(^|\.)acheinavovo\.com\.br$/i.test(u.hostname);
       } catch { return false; }
     }
     function packSrc(urlObj) {
