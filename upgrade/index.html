@@ -6,8 +6,17 @@
   <title>Upgrade — Vídeos Narrados Shopee</title>
   <meta name="description" content="Faça o upgrade e libere acesso completo aos vídeos narrados Shopee.">
   <link rel="preload" as="image" href="1.png">
+  <link rel="preconnect" href="https://connect.facebook.net">
 
-  <!-- Meta Pixel -->
+  <!-- 🔥 Open Graph -->
+  <meta property="og:title" content="Upgrade — Libere todos os vídeos narrados Shopee">
+  <meta property="og:description" content="Acesse agora o pacote completo de vídeos narrados e maximize suas vendas.">
+  <meta property="og:image" content="https://achadinhos.nayarasilveira.com.br/cover.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://achadinhos.nayarasilveira.com.br/upgrade">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 🔧 Meta Pixel -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -23,6 +32,7 @@
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=704776715751233&ev=PageView&noscript=1"/></noscript>
 
+  <!-- 🎨 Estilos -->
   <style>
     :root{
       --accent:#EE4D2D;
@@ -32,67 +42,43 @@
       --maxw:1100px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
-    img{display:block; width:100%; height:auto;}
-    main{max-width:var(--maxw); margin:0 auto;}
-    .cta{display:flex; justify-content:center; margin:20px 0; padding:0 12px;}
-    .cta a{display:inline-block; text-decoration:none; font-weight:700; padding:16px 22px; border-radius:999px; background:var(--accent); color:#fff; box-shadow:0 6px 16px rgba(0,0,0,.35); transition:.2s transform,.2s background; text-align:center; width:100%; max-width:400px;}
-    .cta a:hover{background:var(--accent-dark); transform:translateY(-1px);}
-    .cta a:active{transform:translateY(0);}
-    /* Botão discreto */
-    .low-btn a{
-      display:inline-block;
-      background:#333;
-      color:#fff;
-      font-size:14px;
-      padding:10px 16px;
-      border-radius:30px;
-      text-decoration:none;
-      opacity:.75;
-      transition:.2s;
-    }
-    .low-btn a:hover{opacity:1; background:#444;}
-    .low-btn{text-align:center; margin:18px 0 40px;}
-    img{-webkit-user-drag:none; user-select:none;}
+    body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    img{display:block;width:100%;height:auto;-webkit-user-drag:none;user-select:none}
+    main{max-width:var(--maxw);margin:0 auto;}
+    .cta{display:flex;justify-content:center;margin:20px 0;padding:0 12px;}
+    .cta a{display:inline-block;text-decoration:none;font-weight:700;padding:16px 22px;border-radius:999px;background:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.35);transition:.2s transform,.2s background;text-align:center;width:100%;max-width:400px}
+    .cta a:hover{background:var(--accent-dark);transform:translateY(-1px)}
+    .low-btn{text-align:center;margin:18px 0 40px;}
+    .low-btn a{display:inline-block;background:#333;color:#fff;font-size:14px;padding:10px 16px;border-radius:30px;text-decoration:none;opacity:.75;transition:.2s;}
+    .low-btn a:hover{opacity:1;background:#444;}
   </style>
 </head>
 <body>
 
-  <!-- Barra topo -->
-  <div style="color:#fff; font-size:16px; text-align:center; background:#ff6600; padding:10px;">
+  <!-- 🟧 Barra topo -->
+  <div style="background:#ff6600;color:#fff;font-size:16px;text-align:center;padding:10px;">
     🔥 Oferta de Upgrade disponível apenas <b><span id="datas"></span></b>
   </div>
   <script>
-    function getDatas() {
-      var data = new Date();
-      var dias = [];
-      var mesAtual = data.toLocaleString('pt-BR', { month: 'long' });
-      for (var i = 2; i >= 0; i--) {
-        var novaData = new Date();
-        novaData.setDate(data.getDate() - i);
-        dias.push(novaData.getDate());
-      }
-      return dias.join(', ') + ' de ' + mesAtual;
-    }
-    document.addEventListener('DOMContentLoaded', ()=> {
-      document.getElementById("datas").textContent = getDatas();
+    document.addEventListener('DOMContentLoaded',()=>{
+      const data=new Date(),dias=[],mes=data.toLocaleString('pt-BR',{month:'long'});
+      for(let i=2;i>=0;i--){const d=new Date();d.setDate(data.getDate()-i);dias.push(d.getDate())}
+      document.getElementById("datas").textContent=`${dias.join(', ')} de ${mes}`;
     });
   </script>
 
   <main>
     <!-- 1 -->
-    <section id="s1">
-      <img src="1.png" alt="Upgrade Seção 1" loading="eager">
-    </section>
+    <section id="s1"><img src="1.png" alt="Upgrade Seção 1" loading="eager"></section>
 
-    <!-- 2 (link premium) -->
+    <!-- 2 (upgrade premium) -->
     <section id="s2">
       <a href="https://acheinavovo.com.br/ckt/vRv3Dx" target="_blank" rel="noopener nofollow">
-        <img src="2.png" alt="Upgrade Premium — Clique para liberar tudo">
+        <img src="2.png" alt="Upgrade Premium — Libere acesso completo" loading="lazy">
       </a>
     </section>
 
-    <!-- Botão básico -->
+    <!-- Botão de oferta básica -->
     <div class="low-btn">
       <a href="https://acheinavovo.com.br/ckt/z4KxRK" target="_blank" rel="noopener nofollow">
         Quero ficar na oferta básica por R$ 5,97
@@ -100,12 +86,13 @@
     </div>
   </main>
 
+  <!-- 🧠 Script UTM atualizado -->
   <script>
   (function () {
     const DEFAULT_UTM = new URLSearchParams({
       utm_source: 'facebook',
       utm_medium: 'cpc',
-      utm_campaign: 'achadinhos'
+      utm_campaign: 'achadinhos_upgrade'
     });
     const incoming = new URLSearchParams(window.location.search);
     for (const [k, v] of DEFAULT_UTM.entries()) {
@@ -127,8 +114,8 @@
       ].filter(Boolean).join('|');
       const finalSrc = utmBlock
         ? (existing.includes('utm_source=') || existing.includes('utm_medium=') || existing.includes('utm_campaign=') || existing.includes('utm_content='))
-            ? existing
-            : `${existing}|${utmBlock}`
+          ? existing
+          : `${existing}|${utmBlock}`
         : existing;
       urlObj.searchParams.set('src', finalSrc);
     }
@@ -146,17 +133,16 @@
         a.href = buildTarget(a.href);
       });
     }
-    document.addEventListener('click', function (e) {
-      const a = e.target.closest('a');
-      if (!a || !isCheckout(a.href)) return;
-      const target = buildTarget(a.href);
-      if (a.href === target) return;
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      window.location.assign(target);
-    }, true);
+    document.addEventListener('click', e => {
+      const a=e.target.closest('a');
+      if(!a||!isCheckout(a.href))return;
+      const t=buildTarget(a.href);
+      if(a.href===t)return;
+      e.preventDefault();e.stopImmediatePropagation();
+      window.location.assign(t);
+    },true);
     document.addEventListener('DOMContentLoaded', patchAllAnchors);
-    new MutationObserver(patchAllAnchors).observe(document.documentElement, { childList: true, subtree: true });
+    new MutationObserver(patchAllAnchors).observe(document.documentElement,{childList:true,subtree:true});
   })();
   </script>
 
