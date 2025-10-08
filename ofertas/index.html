@@ -72,7 +72,6 @@
 </head>
 <body>
 
-  <!-- 🔒 H1 escondido para SEO -->
   <h1 style="position:absolute;left:-9999px;">
     Vídeos Narrados Shopee — Ganhe 5 mil por mês com vídeos prontos para afiliados
   </h1>
@@ -102,18 +101,10 @@
       if(el){ el.textContent = getDatas(); }
     });
   </script>
-  <!-- ===== /Barra Topo ===== -->
 
   <main>
-
-    <!-- 1 -->
     <section id="s1"><img src="1.png" alt="Seção 1" loading="eager"></section>
-
-    <!-- CTA entre 1 e 2 -->
-    <div class="cta">
-      <a href="#s13">QUERO GANHAR 5 MIL POR MÊS</a>
-    </div>
-
+    <div class="cta"><a href="#s13">QUERO GANHAR 5 MIL POR MÊS</a></div>
     <section id="s2"><img src="2.png" alt="Seção 2"></section>
     <section id="s3"><img src="3.png" alt="Seção 3"></section>
     <section id="s4"><img src="4.png" alt="Seção 4"></section>
@@ -121,24 +112,18 @@
     <section id="s6"><img src="6.png" alt="Seção 6"></section>
     <section id="s7"><img src="7.png" alt="Seção 7"></section>
 
-    <div class="cta">
-      <a href="#s13">QUERO COPIAR, COLAR E VENDER</a>
-    </div>
+    <div class="cta"><a href="#s13">QUERO COPIAR, COLAR E VENDER</a></div>
 
     <section id="s8"><img src="8.png" alt="Seção 8"></section>
     <section id="s9"><img src="9.png" alt="Seção 9"></section>
     <section id="s10"><img src="10.png" alt="Seção 10"></section>
     <section id="s11"><img src="11.png" alt="Seção 11"></section>
 
-    <div class="cta">
-      <a href="#s13">QUERO TRANSFORMAR CLIQUES EM PIX</a>
-    </div>
+    <div class="cta"><a href="#s13">QUERO TRANSFORMAR CLIQUES EM PIX</a></div>
 
     <section id="s12"><img src="12.png" alt="Seção 12"></section>
-
     <section id="s13"><img src="13.png" alt="Seção 13 — CTA principal"></section>
 
-    <!-- Oferta básica -->
     <section id="s14">
       <a class="offer" href="https://achadinhos.nayarasilveira.com.br/upgrade" target="_blank" rel="noopener nofollow">
         <span class="sr-only">Ir para checkout da Oferta Básica</span>
@@ -146,7 +131,6 @@
       </a>
     </section>
 
-    <!-- Oferta premium -->
     <section id="s15">
       <a class="offer" href="https://acheinavovo.com.br/ckt/oPpWNQ" target="_blank" rel="noopener nofollow">
         <span class="sr-only">Ir para checkout da Oferta Premium</span>
@@ -173,7 +157,6 @@
     </section>
 
     <section id="s17"><img src="17.png" alt="Seção 17"></section>
-
     <div class="spacer"></div>
   </main>
 
@@ -183,18 +166,21 @@
     const DEFAULT_UTM = new URLSearchParams({
       utm_source: 'facebook',
       utm_medium: 'cpc',
-      utm_campaign: 'achadinhos'
+      utm_campaign: 'achadinhos_narrados_base'
     });
+
     const incoming = new URLSearchParams(window.location.search);
     for (const [k, v] of DEFAULT_UTM.entries()) {
       if (!incoming.has(k)) incoming.set(k, v);
     }
+
     function isCheckout(href) {
       try {
         const u = new URL(href, window.location.origin);
         return /(^|\.)acheinavovo\.com\.br$/i.test(u.hostname);
       } catch { return false; }
     }
+
     function packSrc(urlObj) {
       const existing = urlObj.searchParams.get('src') || 'achadinhos';
       const utmBlock = [
@@ -210,6 +196,7 @@
         : existing;
       urlObj.searchParams.set('src', finalSrc);
     }
+
     function buildTarget(href) {
       const u = new URL(href, window.location.origin);
       for (const [k, v] of incoming.entries()) {
@@ -218,12 +205,14 @@
       packSrc(u);
       return u.toString();
     }
+
     function patchAllAnchors() {
       document.querySelectorAll('a[href]').forEach(a => {
         if (!isCheckout(a.href)) return;
         a.href = buildTarget(a.href);
       });
     }
+
     document.addEventListener('click', function (e) {
       const a = e.target.closest('a');
       if (!a || !isCheckout(a.href)) return;
@@ -233,6 +222,7 @@
       e.stopImmediatePropagation();
       window.location.assign(target);
     }, true);
+
     document.addEventListener('DOMContentLoaded', patchAllAnchors);
     new MutationObserver(patchAllAnchors).observe(document.documentElement, { childList: true, subtree: true });
   })();
