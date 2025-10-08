@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vídeos Narrados Shopee — Landing</title>
+  <meta name="description" content="Pacote de vídeos narrados prontos para afiliados Shopee. Baixe, poste e venda.">
+  <link rel="preload" as="image" href="1.png">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '704776715751233');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=704776715751233&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root{
+      --accent:#EE4D2D;
+      --accent-dark:#d63f21;
+      --text:#fff;
+      --bg:#000;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
+    img{display:block; width:100%; height:auto;}
+    main{max-width:var(--maxw); margin:0 auto;}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 12px;}
+    .cta{display:flex; justify-content:center; margin:20px 0; padding:0 12px;}
+    .cta a{display:inline-block; text-decoration:none; font-weight:800; padding:18px 22px; border-radius:999px; background:var(--accent); color:#fff; box-shadow:0 6px 16px rgba(0,0,0,.35); transition:.2s transform,.2s background; text-align:center; width:100%; max-width:680px;}
+    .cta a:hover{background:var(--accent-dark); transform:translateY(-1px);}
+    .cta a:active{transform:translateY(0);}
+    img{-webkit-user-drag:none; user-select:none;}
+    @media (max-width:480px){
+      .cta a{padding:16px 18px; font-size:15px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Barra Topo ===== -->
+  <div id="e_1313492_1_173967184567b149259e736439016908" class="gpc-e e_html dd dm">
+    <div class="c e_html">
+      <div id="displayDate3" style="color:#fff; font-size:16px; text-align:center; background:#ff6600; padding:10px;">
+        Somente nos dias: <b><span id="datas"></span></b> você vai pagar apenas <b>R$ 10,00</b>
+      </div>
+    </div>
+  </div>
+  <script>
+    function getDatas() {
+      var data = new Date();
+      var dias = [];
+      var mesAtual = data.toLocaleString('pt-BR', { month: 'long' });
+      for (var i = 2; i >= 0; i--) {
+        var novaData = new Date();
+        novaData.setDate(data.getDate() - i);
+        var dia = novaData.getDate();
+        dias.push(dia);
+      }
+      return dias.join(', ') + ' de ' + mesAtual;
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+      var el = document.getElementById("datas");
+      if(el){ el.textContent = getDatas(); }
+    });
+  </script>
+  <!-- ===== /Barra Topo ===== -->
+
+  <main>
+    <section id="s1">
+      <img src="1.png" alt="Seção 1" loading="eager">
+    </section>
+
+    <section id="s2">
+      <img src="2.png" alt="Seção 2">
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    const DEFAULT_UTM = new URLSearchParams({
+      utm_source: 'facebook',
+      utm_medium: 'cpc',
+      utm_campaign: 'achadinhos'
+    });
+    const incoming = new URLSearchParams(window.location.search);
+    for (const [k, v] of DEFAULT_UTM.entries()) {
+      if (!incoming.has(k)) incoming.set(k, v);
+    }
+    function isCheckout(href) {
+      try {
+        const u = new URL(href, window.location.origin);
+        return /(^|\.)pagamento\.acheinavovo\.com\.br$/i.test(u.hostname);
+      } catch { return false; }
+    }
+    function packSrc(urlObj) {
+      const existing = urlObj.searchParams.get('src') || 'achadinhos';
+      const utmBlock = [
+        incoming.get('utm_source')  ? 'utm_source='+incoming.get('utm_source')   : null,
+        incoming.get('utm_medium')  ? 'utm_medium='+incoming.get('utm_medium')   : null,
+        incoming.get('utm_campaign')? 'utm_campaign='+incoming.get('utm_campaign'): null,
+        incoming.get('utm_content') ? 'utm_content='+incoming.get('utm_content') : null,
+      ].filter(Boolean).join('|');
+      const finalSrc = utmBlock
+        ? (existing.includes('utm_source=') || existing.includes('utm_medium=') || existing.includes('utm_campaign=') || existing.includes('utm_content='))
+            ? existing
+            : `${existing}|${utmBlock}`
+        : existing;
+      urlObj.searchParams.set('src', finalSrc);
+    }
+    function buildTarget(href) {
+      const u = new URL(href, window.location.origin);
+      for (const [k, v] of incoming.entries()) {
+        if (!u.searchParams.has(k)) u.searchParams.set(k, v);
+      }
+      packSrc(u);
+      return u.toString();
+    }
+    function patchAllAnchors() {
+      document.querySelectorAll('a[href]').forEach(a => {
+        if (!isCheckout(a.href)) return;
+        a.href = buildTarget(a.href);
+      });
+    }
+    document.addEventListener('click', function (e) {
+      const a = e.target.closest('a');
+      if (!a || !isCheckout(a.href)) return;
+      const target = buildTarget(a.href);
+      if (a.href === target) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      window.location.assign(target);
+    }, true);
+    document.addEventListener('DOMContentLoaded', patchAllAnchors);
+    new MutationObserver(patchAllAnchors).observe(document.documentElement, { childList: true, subtree: true });
+  })();
+  </script>
+
+</body>
+</html>
