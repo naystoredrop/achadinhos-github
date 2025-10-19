@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Upsell</title>
+  <meta name="description" content="Upsell" />
+
+  <!-- Favicon (opcional, se existir no diretório) -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Open Graph (não aparece na página; só melhora preview em link) -->
+  <meta property="og:title" content="Upsell" />
+  <meta property="og:description" content="Oferta especial" />
+  <meta property="og:image" content="https://seu-dominio.com/caminho/1.gif" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://seu-dominio.com/upsell/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Meta Pixel Code (mesmo ID da sua landing) -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)n=f.fbq;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '704776715751233'); /* ID igual ao da página principal */
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=704776715751233&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root{ --bg:#000; }
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; height:100%; background:var(--bg); }
+    body{
+      display:grid;
+      place-items:center;
+      overscroll-behavior:contain;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    img{
+      display:block;
+      width:min(100vw, 1100px);
+      height:auto;
+      user-select:none;
+      -webkit-user-drag:none;
+      image-rendering:auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- VISÍVEL: apenas a 1.gif -->
+  <img src="1.gif" alt="" loading="eager" fetchpriority="high">
+</body>
+</html>
