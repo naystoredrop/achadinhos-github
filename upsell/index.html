@@ -1,10 +1,188 @@
-<div style="position: relative; padding-top: 177.77777777777777%;">
-  <iframe
-    src="https://customer-b2gdb94hrid04n5r.cloudflarestream.com/0aba797180114289e6fe5f7c241baeff/iframe?autoplay=true&muted=true&controls=false&poster=https%3A%2F%2Fcustomer-b2gdb94hrid04n5r.cloudflarestream.com%2F0aba797180114289e6fe5f7c241baeff%2Fthumbnails%2Fthumbnail.jpg"
-    loading="lazy"
-    style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
-    allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-    muted
-    allowfullscreen="true"
-  ></iframe>
-</div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upsell — Achadinhos</title>
+
+  <!-- Cloudflare Stream SDK (permite controlar mute/unmute sem reiniciar) -->
+  <script data-cfasync="false" src="https://embed.videodelivery.net/embed/sdk.latest.js"></script>
+
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --text: #f7f7f7;
+      --muted: #bdbdbd;
+      --accent: #EE4D2D;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", "Noto Sans", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.45;
+    }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 16px; }
+    header { text-align: center; margin: 8px 0 14px; }
+    header h1 { font-size: 1.35rem; margin: 0 0 6px; }
+    header p { margin: 0; color: var(--muted); font-size: .975rem; }
+
+    .video {
+      position: relative;
+      width: 100%;
+      padding-top: 177.7777777778%;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      background: #000;
+      margin: 8px 0 14px;
+    }
+    /* O elemento <stream> é posicionado como o iframe ficava */
+    .video stream {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: block;
+      border: none;
+      outline: none;
+    }
+
+    /* Botão flutuante para ativar som */
+    .unmute {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      z-index: 3;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 800;
+      background: rgba(0,0,0,.55);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.35);
+      transition: transform .15s ease, opacity .2s ease;
+    }
+    .unmute:hover { transform: scale(1.03); }
+    .unmute.hide { opacity: 0; pointer-events: none; }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(238,77,45,.45);
+      transform: translateZ(0);
+      animation: pulse 1.8s ease-in-out infinite;
+      transition: filter .2s ease, transform .15s ease;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(238,77,45,.55); }
+      70% { box-shadow: 0 0 0 18px rgba(238,77,45,0); }
+      100% { box-shadow: 0 0 0 0 rgba(238,77,45,0); }
+    }
+    .cta .price { background: rgba(255,255,255,.14); padding: 6px 10px; border-radius: 10px; font-weight: 900; }
+    .muted-center { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 10px; }
+    .sticky { position: sticky; bottom: 8px; z-index: 10; margin-top: 12px; }
+
+    .badges { margin: 14px 0 8px; display: grid; gap: 8px; color: var(--muted); font-size: .95rem; }
+    .badges span { display: inline-flex; align-items: center; gap: .5rem; }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '704776715751233');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=704776715751233&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>💥 Upgrade exclusivo: todos os pacotes por <span style="color:var(--accent)">R$9,90</span> — acesso vitalício</h1>
+      <p>Oferta relâmpago. Depois que o contador zerar, volta ao preço normal.</p>
+    </header>
+
+    <!-- Player Cloudflare Stream com SDK: autoplay mudo + botão para ativar som sem reiniciar -->
+    <div class="video">
+      <stream id="vsl" src="0aba797180114289e6fe5f7c241baeff"
+              autoplay
+              muted
+              controls="false"
+              playsinline>
+      </stream>
+      <button id="unmuteBtn" class="unmute">🔊 Ativar som</button>
+    </div>
+
+    <div class="sticky">
+      <a id="cta-upsell" class="cta" href="https://acheinavovo.com.br/ckt/VoNZqy">
+        <span>👉 Quero aproveitar agora</span>
+        <span class="price">R$ 9,90</span>
+        <small>(vitalício)</small>
+      </a>
+      <p class="muted-center">Pagamento 100% seguro • Acesso imediato</p>
+    </div>
+
+    <div class="badges">
+      <span>⏰ <strong>Corre:</strong> válido por tempo limitadíssimo</span>
+      <span>🎯 Conteúdos prontos para usar, sem complicação</span>
+      <span>🔒 7 dias de garantia: amou ou dinheiro de volta</span>
+    </div>
+  </div>
+
+  <script>
+    // Unmute sem reiniciar usando o SDK do Cloudflare Stream
+    (function(){
+      const el = document.getElementById('vsl');
+      const btn = document.getElementById('unmuteBtn');
+
+      function tryUnmute() {
+        try {
+          const player = el.player; // exposto pelo SDK
+          if (player) {
+            player.muted = false;
+            player.volume = 1.0;
+            btn.classList.add('hide');
+          }
+        } catch(e) {}
+      }
+
+      btn.addEventListener('click', tryUnmute);
+      // Também tenta desmutar no primeiro gesto do usuário (qualquer clique/tecla/toque)
+      ['click','touchstart','keydown'].forEach(evt => {
+        window.addEventListener(evt, function once(){
+          tryUnmute();
+          window.removeEventListener(evt, once, {capture:false});
+        }, {once:true});
+      });
+    })();
+
+    // Pixel: eventos de funil
+    window.addEventListener('load', function(){
+      try { fbq('trackCustom', 'UpsellView', {}); } catch(e){}
+    });
+    document.getElementById('cta-upsell').addEventListener('click', function(){
+      try {
+        fbq('trackCustom', 'UpsellClick', { value: 9.90, currency: 'BRL', offer: 'Upsell 9,90 vitalício' });
+      } catch(e){}
+    });
+  </script>
+</body>
+</html>
