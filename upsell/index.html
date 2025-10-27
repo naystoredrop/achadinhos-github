@@ -1,98 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Upsell — Clique para assistir</title>
+<!-- Capa -> clique -> iframe com autoplay e som -->
+<div style="position: relative; padding-top: 177.77777777777777%;" id="vsl-box">
+  <img src="./1.gif" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; cursor:pointer; border:0;" id="vsl-cover">
+</div>
 
-  <style>
-    :root{
-      --accent:#22C55E; /* verde do CTA */
-      --accent-hover:#16A34A;
-      --text:#ffffff;
-      --muted:#bdbdbd;
-      --bg:#0b0b0c;
-    }
-    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial}
-    .wrap{max-width:780px;margin:0 auto;padding:16px}
-    /* 9:16 */
-    .video{position:relative;width:100%;padding-top:177.7777777778%;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    .cover, .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
-    .cover{cursor:pointer;background:#000}
-    .cover img{width:100%;height:100%;object-fit:cover;display:block}
-    .play-badge{
-      position:absolute;inset:auto 12px 12px auto;
-      background:rgba(0,0,0,.6);color:#fff;border:0;border-radius:999px;
-      padding:10px 14px;font-weight:800;backdrop-filter:blur(6px);pointer-events:none
-    }
-
-    .cta{
-      display:none; /* aparece só após o clique */
-      width:100%; margin:14px 0 0; padding:16px 18px;
-      text-align:center; text-decoration:none; font-weight:900;
-      color:#fff; background:var(--accent); border-radius:14px;
-      box-shadow:0 8px 24px rgba(34,197,94,.35); transition:filter .2s ease, transform .15s ease;
-    }
-    .cta:hover{filter:brightness(1.05); transform:translateY(-1px)}
-    .muted-center{text-align:center;color:var(--muted);font-size:.92rem;margin-top:8px}
-  </style>
-
-  <!-- Meta Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','704776715751233'); fbq('track','PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=704776715751233&ev=PageView&noscript=1"/></noscript>
-</head>
-<body>
-  <div class="wrap">
-    <!-- Capa GIF: click -> troca para iframe com autoplay+som -->
-    <div class="video" id="vslBox">
-      <div class="cover" id="vslCover" aria-label="Clique para assistir com som">
-        <img src="./1.gif" alt="Capa do vídeo — clique para assistir" loading="eager" />
-        <span class="play-badge">▶️ Tocar com som</span>
-      </div>
-    </div>
-
-    <!-- CTA aparece após iniciar o vídeo -->
-    <a id="cta" class="cta" href="https://acheinavovo.com.br/ckt/VoNZqy">QUERO APROVEITAR AGORA</a>
-    <p class="muted-center">Pagamento 100% seguro • Acesso imediato</p>
-  </div>
-
-  <script>
-    const cover = document.getElementById('vslCover');
-    const box   = document.getElementById('vslBox');
-    const cta   = document.getElementById('cta');
-
-    function playWithSound(){
-      // Monta o iframe após interação do usuário (permite áudio)
-      const src = "https://customer-b2gdb94hrid04n5r.cloudflarestream.com/0aba797180114289e6fe5f7c241baeff/iframe?autoplay=true&controls=false&muted=false&poster=https%3A%2F%2Fcustomer-b2gdb94hrid04n5r.cloudflarestream.com%2F0aba797180114289e6fe5f7c241baeff%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600";
-      const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', src);
-      iframe.setAttribute('allow', 'autoplay; fullscreen; encrypted-media; picture-in-picture');
-      iframe.setAttribute('allowfullscreen', 'true');
-      iframe.style.position = 'absolute';
-      iframe.style.inset = '0';
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      iframe.style.border = '0';
-
-      box.innerHTML = ''; // remove a capa
+<script>
+  (function(){
+    var box = document.getElementById('vsl-box');
+    var cover = document.getElementById('vsl-cover');
+    function play(){
+      var iframe = document.createElement('iframe');
+      iframe.src = "https://customer-b2gdb94hrid04n5r.cloudflarestream.com/0aba797180114289e6fe5f7c241baeff/iframe?autoplay=true&controls=false&poster=https%3A%2F%2Fcustomer-b2gdb94hrid04n5r.cloudflarestream.com%2F0aba797180114289e6fe5f7c241baeff%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600";
+      iframe.loading = "lazy";
+      iframe.allow = "autoplay; fullscreen; encrypted-media; picture-in-picture; accelerometer; gyroscope";
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = "border:none; position:absolute; top:0; left:0; height:100%; width:100%;";
+      box.innerHTML = "";
       box.appendChild(iframe);
-
-      // Mostra CTA e dispara evento Pixel
-      cta.style.display = 'block';
-      try { fbq('trackCustom','UpsellPlayWithSound',{}); } catch(e){}
     }
-
-    cover.addEventListener('click', playWithSound);
-    // fallback para teclado
-    cover.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') playWithSound(); });
-  </script>
-</body>
-</html>
+    cover.addEventListener('click', play, {once:true});
+    cover.addEventListener('touchstart', play, {once:true, passive:true});
+    cover.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' ') play(); }, {once:true});
+  })();
+</script>
