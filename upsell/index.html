@@ -3,12 +3,13 @@
   <img src="./1.gif" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; cursor:pointer; border:0;" id="vsl-cover">
 </div>
 
-<!-- Botão aparece após o clique -->
 <a id="cta" href="https://acheinavovo.com.br/ckt/VoNZqy"
-   style="display:none; text-align:center; margin-top:16px; width:100%;
-   background-color:#22C55E; color:#fff; font-weight:800; font-family:system-ui, sans-serif;
-   text-decoration:none; padding:16px 0; border-radius:12px; font-size:1rem;
-   box-shadow:0 4px 18px rgba(34,197,94,.3);">QUERO APROVEITAR AGORA</a>
+   style="display:none; width:100%; margin-top:16px; text-align:center;
+   background:#22C55E; color:#fff; text-decoration:none; font-weight:900;
+   padding:18px 0; border-radius:14px; font-size:1.1rem; line-height:1;
+   box-shadow:0 6px 22px rgba(34,197,94,.35); font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial;">
+  QUERO APROVEITAR AGORA
+</a>
 
 <script>
   (function(){
@@ -18,11 +19,12 @@
 
     function play(){
       var iframe = document.createElement('iframe');
-      iframe.src = "https://customer-b2gdb94hrid04n5r.cloudflarestream.com/0aba797180114289e6fe5f7c241baeff/iframe?autoplay=true&controls=false&muted=false&poster=https%3A%2F%2Fcustomer-b2gdb94hrid04n5r.cloudflarestream.com%2F0aba797180114289e6fe5f7c241baeff%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600";
+      iframe.src = "https://customer-b2gdb94hrid04n5r.cloudflarestream.com/0aba797180114289e6fe5f7c241baeff/iframe?autoplay=true&controls=false&playsinline=true&poster=https%3A%2F%2Fcustomer-b2gdb94hrid04n5r.cloudflarestream.com%2F0aba797180114289e6fe5f7c241baeff%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600";
       iframe.loading = "lazy";
       iframe.allow = "autoplay; fullscreen; encrypted-media; picture-in-picture; accelerometer; gyroscope";
       iframe.allowFullscreen = true;
       iframe.style.cssText = "border:none; position:absolute; top:0; left:0; height:100%; width:100%;";
+
       box.innerHTML = "";
       box.appendChild(iframe);
       cta.style.display = "block";
@@ -30,6 +32,5 @@
 
     cover.addEventListener('click', play, {once:true});
     cover.addEventListener('touchstart', play, {once:true, passive:true});
-    cover.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' ') play(); }, {once:true});
   })();
 </script>
